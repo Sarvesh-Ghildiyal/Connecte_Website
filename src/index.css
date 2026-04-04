@@ -1,0 +1,108 @@
+/* ─── Global Styles for Connecte ─── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #25D366;
+  --foreground: #121212;
+  --border: #E4E4E7;
+  --surface: #F4F4F5;
+}
+
+body {
+  @apply font-body text-foreground bg-white antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading tracking-heading;
+}
+
+/* ─── Pixel-Perfect Range Slider ─── */
+/* Custom styling to match "The Precision Ledger" high-contrast look */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px; /* Thicker track per mockup */
+  background: #E4E4E7; /* Default track color */
+  outline: none;
+  border: none;
+  @apply transition-all duration-200 cursor-pointer rounded-full;
+}
+
+/* Track progress color - webkit handled via linear-gradient in React inline styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: transparent; /* Background handled by the input itself */
+  border: none;
+}
+
+/* Thumb - webkit - Thick black circle with white center matching mockup */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  background: #121212; /* Solid black thumb */
+  border: 4px solid #FFFFFF; /* Think white border per mockup */
+  box-shadow: 0 0 0 1px #121212; /* Inner black ring to define it */
+  border-radius: 50%;
+  margin-top: -11px; /* Center thumb on 6px track */
+  @apply transition-transform duration-150 shadow-sm;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  @apply scale-110;
+}
+
+/* Firefox support */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  background: #E4E4E7;
+  border: none;
+  @apply rounded-full;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #121212;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #121212;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-progress {
+  background: #121212; /* Black progress track */
+  height: 6px;
+  @apply rounded-l-full;
+}
+
+/* ─── Accordion Animations ─── */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* ─── Smooth Transitions ─── */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Reset for specific elements where global transition is not desired */
+input, button, a {
+  @apply transition-all duration-200;
+}
+
