@@ -5,66 +5,102 @@ const SECTIONS = [
     number: '01',
     title: 'INTRODUCTION',
     content: [
-      'At Connecte, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share information about you when you use our website, mobile application, and other online services or when you otherwise interact with us.',
-      'By using our services, you consent to the collection and use of information as described in this policy. We prioritize transparency and security in all our data handling processes.',
+      'Connecte ("we", "our", "us") is a WhatsApp Business messaging platform that enables businesses to manage WhatsApp communications at scale. Our platform is built on Meta\'s WhatsApp Cloud API and Business Management API.',
+      'This Privacy Policy explains what data we collect, how we use it, how we protect it, and your rights as a user of Connecte. By registering and using Connecte, you agree to the practices described in this policy.',
     ],
   },
   {
     number: '02',
-    title: 'INFORMATION WE COLLECT',
+    title: 'DATA WE COLLECT',
     content: [
-      'We collect information you provide directly to us. For example, we collect information when you create an account, subscribe to our newsletter, or communicate with us.',
+      'When you use Connecte, we collect the following categories of information to ensure reliable service delivery and account security:',
     ],
     bullets: [
-      { bold: 'Account Information:', text: ' Name, email address, phone number, and password.' },
-      { bold: 'Payment Information:', text: ' We use third-party payment processors to process payments made through the services. We do not store your credit card information.' },
-      { bold: 'Usage Information:', text: ' Details of your interactions with our platform, including message metadata and frequency.' },
+      { bold: 'Account data:', text: ' Business name and email address used during registration, along with hashed authentication credentials.' },
+      { bold: 'WhatsApp integration data:', text: ' WABA ID, system access tokens (stored encrypted), phone number IDs, and profile information.' },
+      { bold: 'Template data:', text: ' Message templates (content, variables, status) and Meta performance metrics (sent, delivered, read counts).' },
+      { bold: 'Messaging data:', text: ' Message content, metadata, timestamps, and customer contact phone numbers. Media files are stored by Meta for 30 days.' },
+      { bold: 'Analytics data:', text: ' Platform usage stats, API health status, and analytics used for dashboard reporting.' },
     ],
   },
   {
     number: '03',
-    title: 'USE OF INFORMATION',
+    title: 'HOW WE USE YOUR DATA',
     content: [
-      'We use the information we collect to provide, maintain, and improve our services, including to:',
+      'We use your data primarily to provide the core messaging services via Meta\'s APIs and to route communications effectively through your Connecte dashboard.',
     ],
-    callouts: [
-      {
-        title: 'PRIMARY PURPOSE',
-        text: 'To provide the Connecte platform functionality and personalize your user experience.',
-        highlighted: false,
-      },
-      {
-        title: 'COMMUNICATION',
-        text: 'Send you technical notices, updates, security alerts, and support messages.',
-        highlighted: true,
-      },
+    bullets: [
+      { bold: 'Productivity:', text: ' Displaying incoming and outgoing messages and analytics in your dashboard.' },
+      { bold: 'Support:', text: ' Sending onboarding, product update, and support communications to your registered email.' },
+      { bold: 'Optimization:', text: ' Improving platform performance, reliability, and feature sets based on usage patterns.' },
     ],
+    emphasis: 'We do not sell your data, use your message content for advertising, or access your content except where strictly required for support with your consent.',
   },
   {
     number: '04',
-    title: 'SHARING OF INFORMATION',
+    title: 'DATA STORAGE & PROTECTION',
     content: [
-      'We may share information about you as follows or as otherwise described in this Privacy Policy:',
-      'With vendors, consultants, and other service providers who need access to such information to carry out work on our behalf; in response to a request for information if we believe disclosure is in accordance with, or required by, any applicable law, regulation, or legal process.',
+      'All data is stored on encrypted servers with access tokens encrypted at rest. Each business account is fully isolated—your data is never accessible to other customers.',
+      'Note: Media files are stored by Meta on their infrastructure (ID-only reference). After 30 days, Meta may delete these files unless your plan includes extended storage.',
     ],
-    emphasis: 'Connecte does not sell your personal data to third-party advertisers or data brokers for their own marketing purposes.',
   },
   {
     number: '05',
-    title: 'DATA SECURITY',
+    title: 'THIRD PARTIES',
     content: [
-      'We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction. Our infrastructure is designed with "Security-First" principles, utilizing industry-standard encryption protocols.',
+      'We share your data strictly with the following trusted third parties for core functionality:',
+    ],
+    callouts: [
+      {
+        title: 'META / WHATSAPP',
+        text: 'Core requirement for WABA integration and messaging via the WhatsApp Cloud API.',
+        highlighted: true,
+      },
+      {
+        title: 'HUBSPOT',
+        text: 'Used solely for onboarding, support communications, and product updates.',
+        highlighted: false,
+      },
     ],
   },
   {
     number: '06',
-    title: 'CONTACT US',
+    title: "YOUR CUSTOMERS' DATA",
     content: [
-      'If you have any questions about this Privacy Policy, please contact us at:',
+      'You are the data controller for your customers\' info. Connecte acts as a data processor. You must obtain valid opt-in consent and comply with WhatsApp\'s Business Policy and local laws like India\'s DPDP Act 2023.',
+    ],
+  },
+  {
+    number: '07',
+    title: 'DATA RETENTION',
+    content: [
+      'Account data is retained for the duration of your subscription and deleted within 30 days of closure. Message history is retained for 3 months by default (varies by plan).',
+      'You may request deletion of your data at any time by contacting us: ghildiyalsarvesh@gmail.com.',
+    ],
+  },
+  {
+    number: '08',
+    title: 'YOUR RIGHTS',
+    content: [
+      'As a user, you have the right to export your account data, request full deletion, update your info, or withdraw WhatsApp API access at any time via your Meta Business Portfolio.',
+    ],
+  },
+  {
+    number: '09',
+    title: 'POLICY UPDATES',
+    content: [
+      'This policy will be updated as new features are added. You will be notified of any material changes via email at least 7 days before they take effect.',
+    ],
+  },
+  {
+    number: '10',
+    title: 'CONTACT',
+    content: [
+      'For any privacy-related questions or requests, please reach out to us directly through the following channels:',
     ],
     contact: {
-      email: 'privacy@connecte.in',
-      location: 'BANGALORE, INDIA',
+      email: 'ghildiyalsarvesh@gmail.com',
+      location: 'INDIA | +91 7017348970',
     },
   },
 ]
@@ -81,7 +117,7 @@ const PrivacyPage: React.FC = () => {
             Privacy<br />Policy
           </h1>
           <p className="text-[11px] font-body uppercase tracking-[0.15em] text-muted mt-6">
-            Effective date: June 1, 2024
+            Effective date: March 2026
           </p>
         </div>
       </section>
@@ -171,7 +207,7 @@ const PrivacyPage: React.FC = () => {
           {/* End of document marker */}
           <div className="border-t border-border pt-6 flex justify-between text-[10px] text-muted font-body uppercase tracking-[0.15em]">
             <span>End of document</span>
-            <span>2024 / CNCT / v1</span>
+            <span>2026 / CNCT / v1</span>
           </div>
         </div>
       </section>

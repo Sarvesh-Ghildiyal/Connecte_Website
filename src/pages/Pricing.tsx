@@ -3,9 +3,9 @@ import Button from '../components/Button'
 
 /* ─── Pricing Calculator Logic (Current India Rates per Conversation) ─── */
 const META_RATES = {
-  marketing: 0.7265,
-  utility: 0.3082,
-  service: 0.2906,
+  marketing: 0.8631,
+  utility: 0.115,
+  authentication: 0.115,
 }
 const CONNECTE_MARKUP = 1.11
 
@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
 ]
 
 const PricingPage: React.FC = () => {
-  const [category, setCategory] = useState<keyof typeof META_RATES>('utility')
+  const [category, setCategory] = useState<keyof typeof META_RATES>('marketing')
   const [convCount, setConvCount] = useState(50000)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
@@ -79,6 +79,21 @@ const PricingPage: React.FC = () => {
                   <span className="text-[15px] font-body text-foreground font-medium">{item}</span>
                 </div>
               ))}
+
+              <div className="pt-4">
+                <a
+                  href="/docs/Pricing-Explainer.pdf"
+                  download
+                  className="inline-flex items-center gap-2.5 text-[14px] font-body font-bold text-foreground hover:text-primary transition-colors group px-4 py-2 border border-border rounded hover:border-primary/30 hover:bg-surface"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-y-0.5 transition-transform">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Download META Pricing Explainer (PDF)</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -88,7 +103,7 @@ const PricingPage: React.FC = () => {
               <div className="flex flex-col gap-3 mb-8">
                 <span className="text-[11px] font-body uppercase tracking-[0.1em] text-muted font-medium">Conversation Category</span>
                 <div className="flex gap-2 p-1 bg-white border border-border rounded-lg">
-                  {(['service', 'utility', 'marketing'] as const).map((cat) => (
+                  {(['marketing', 'utility', 'authentication'] as const).map((cat) => (
                     <button
                       key={cat}
                       onClick={() => setCategory(cat)}

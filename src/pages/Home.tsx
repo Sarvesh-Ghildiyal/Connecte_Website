@@ -6,14 +6,14 @@ type Audience = 'exploring' | 'switching'
 
 const HERO_CONTENT: Record<Audience, { heading: string; subtext: string; cta: string; ctaHref: string }> = {
   exploring: {
-    heading: 'WhatsApp Business, engineered for transparency.',
-    subtext: 'Start talking to your customers on WhatsApp without the reseller fluff. Built for Indian SMBs who value honest pricing.',
+    heading: 'Your Customer Engagement Messaging Platform',
+    subtext: 'Make it easy for people to connect with your business by meeting them where they already are: on WhatsApp.',
     cta: 'Get Started Free',
     ctaHref: '/book-demo',
   },
   switching: {
-    heading: 'Stop overpaying for WhatsApp conversations.',
-    subtext: 'Switch to transparent pricing. Meta charges ₹X. We charge ₹X × 1.11. No hidden software fees, no per-agent costs.',
+    heading: 'Tired of Monthly Subscriptions to use Meta APIs ?',
+    subtext: 'Simple and transparent pricing—Meta charges you ₹X for messaging. We charge ₹X × 1.11. No hidden software fees, no per-agent costs.',
     cta: 'Compare Pricing',
     ctaHref: '/pricing',
   },
@@ -28,7 +28,7 @@ const BENEFITS = [
   {
     icon: '/svg/home2.svg',
     title: 'Built by Devs',
-    description: 'A robust, direct-to-builder API platform. We stripped away the marketing jargon so you can ship faster.',
+    description: 'We Reserached, Analyzed and Delievered. Tailored for you to increase your lead conversions via personalized branding.',
   },
   {
     icon: '/svg/home3.svg',
@@ -44,10 +44,10 @@ const HomePage: React.FC = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-6 md:px-12 lg:px-[120px]">
+      <section className="pt-14 pb-12 px-6 md:px-12 lg:px-[120px]">
         <div className="max-w-page mx-auto text-center">
           {/* Audience Toggle — pill-shaped, 40px height per spec */}
-          <div className="inline-flex items-center bg-surface rounded-full p-1 mb-6" role="tablist" aria-label="Audience selection">
+          <div className="inline-flex items-center bg-surface rounded-full p-1 mb-4" role="tablist" aria-label="Audience selection">
             <button
               role="tab"
               aria-selected={audience === 'exploring'}
@@ -84,18 +84,18 @@ const HomePage: React.FC = () => {
           {/* Dynamic Hero Heading — 72px DM Sans per spec */}
           <h1
             key={audience}
-            className="font-heading text-[40px] sm:text-[56px] md:text-[64px] lg:text-[72px] font-bold leading-[1.05] tracking-[-0.04em] text-foreground max-w-[800px] mx-auto mb-8"
+            className="font-heading text-[40px] sm:text-[56px] md:text-[64px] lg:text-[72px] font-bold leading-[1.05] tracking-[-0.04em] text-foreground max-w-[800px] mx-auto mb-6"
           >
             {content.heading}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base md:text-[17px] text-muted max-w-xl mx-auto mb-10 font-body leading-relaxed">
+          <p className="text-base md:text-[17px] text-muted max-w-xl mx-auto mb-6 font-body leading-relaxed">
             {content.subtext}
           </p>
 
           {/* CTA row */}
-          <div className="flex items-center justify-center gap-4 mb-20">
+          <div className="flex items-center justify-center gap-4 mb-16">
             <Button variant="primary" href={content.ctaHref} arrow>
               {content.cta}
             </Button>
@@ -104,16 +104,23 @@ const HomePage: React.FC = () => {
 
           {/* Video Embed — 1024px max, 16:9, 1px border, 4px radius per spec */}
           <div className="relative max-w-[1024px] mx-auto rounded border border-border overflow-hidden aspect-video">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center overflow-hidden">
               {/* Play button — white circle with dark play icon */}
-              <button
-                className="relative z-10 w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white hover:scale-105 transition-all cursor-pointer"
-                aria-label="Play demo video"
-              >
-                <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L17 11L1 21V1Z" fill="#121212" />
-                </svg>
-              </button>
+              <div className="relative flex flex-col items-center gap-6">
+                <button
+                  className="relative z-10 w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white hover:scale-105 transition-all cursor-pointer opacity-50 grayscale"
+                  aria-label="Play intro video"
+                  disabled
+                >
+                  <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L17 11L1 21V1Z" fill="#121212" />
+                  </svg>
+                </button>
+                <div className="flex flex-col items-center gap-1.5 animate-pulse">
+                  <span className="text-white/40 font-heading text-xs font-bold uppercase tracking-[0.2em]">HEAR FROM OUR TEAM</span>
+                  <span className="text-white font-heading text-xl md:text-2xl font-bold tracking-tight">Coming Soon</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

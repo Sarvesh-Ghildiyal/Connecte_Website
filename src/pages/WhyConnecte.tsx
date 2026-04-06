@@ -10,8 +10,7 @@ const WhyConnectePage: React.FC = () => {
             The Builder's Manifesto
           </h1>
           <p className="text-[16px] text-muted font-body leading-relaxed max-w-xl mx-auto">
-            We got tired of WhatsApp API platforms hiding their margins behind buzzwords.
-            So we built the alternative.
+            The story of how a policy update and a desire to help an NGO turned into a SaaS.
           </p>
         </div>
       </section>
@@ -20,7 +19,6 @@ const WhyConnectePage: React.FC = () => {
       <section className="px-6 md:px-12 lg:px-16 mb-16">
         <div className="max-w-reading mx-auto">
           <div className="aspect-[16/10] bg-gray-800 rounded overflow-hidden relative">
-            {/* Placeholder for B&W image of founders */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 flex items-center justify-center">
               <span className="text-xs text-white/30 font-body tracking-wider uppercase">Founders at work</span>
             </div>
@@ -32,51 +30,43 @@ const WhyConnectePage: React.FC = () => {
       <section className="px-6 md:px-12 lg:px-16 pb-24">
         <article className="max-w-reading mx-auto space-y-7">
           <p className="text-[17px] font-body text-foreground leading-[1.7]">
-            The SaaS industry has a transparency problem, and nowhere is it more glaring
-            than in the communication API space. For years, Indian SMBs and developers
-            have been forced to navigate a labyrinth of resellers, opaque pricing models,
-            and inflated margins just to send a simple WhatsApp message to their customers.
+            The story of Connecte didn't start in a boardroom. An NGO named <strong>DHAD</strong> reached out to me because they were struggling with Meta's April 2025 policy updates. Because they were using an unregistered tool, their important messages were going straight to spam.
           </p>
 
           <p className="text-[17px] font-body text-foreground leading-[1.7]">
-            When we set out to build Connecte, we didn't want to create just another tool
-            with a shiny dashboard and a hidden markup. We wanted to build a utility—a
-            raw, powerful, direct connection to the Meta API, wrapped in a developer-first
-            ethos that respects both your time and your intelligence.
+            They couldn't afford the exorbitant software out there, so they asked me if I could build a custom solution for them.
+          </p>
+
+          <p className="text-[17px] font-body text-foreground leading-[1.7]">
+            At the time, I was an intern at Wingify, learning about the SaaS world and dreaming of building something of my own one day. I looked around the market and saw companies charging heavy monthly subscription fees <em>on top</em> of what Meta already charged for the API. It's a great way to make money, but it felt really unfair to smaller businesses.
+          </p>
+
+          <p className="text-[17px] font-body text-foreground leading-[1.7]">
+            I thought: <em>Why just build a small tool for DHAD? Why not build a full platform for anyone else dealing with this?</em> Helping others and building a business don't have to be opposites. So, I built Connecte.
           </p>
 
           {/* Quote Block — green left border, DM Sans bold */}
           <blockquote className="border-l-[4px] border-primary pl-6 py-4 my-14">
             <p className="font-heading text-[20px] md:text-[22px] font-bold text-foreground leading-[1.4]">
-              "We believe that infrastructure should be invisible, pricing
-              should be transparent, and the relationship between a builder
-              and their tools should be honest."
+              "We dropped the subscription fees completely. We aren't here to squeeze you—we built this to show that software can be good without being predatory."
             </p>
           </blockquote>
 
-          <p className="text-[17px] font-body text-foreground leading-[1.7]">
-            Most platforms treat you like a mark, upcharging you on every conversation started
-            and every contact stored, while providing little additional value beyond what
-            the underlying API already offers. They wrap basic functionality in complex
-            pricing tiers designed to confuse rather than clarify.
-          </p>
-
-          {/* The 1.11x Promise */}
+          {/* Infrastructure & The 11% */}
           <h2 className="font-heading text-[28px] md:text-[32px] font-bold text-foreground pt-10 tracking-[-0.03em]">
-            The 1.11x Promise
+            Why 11%? To keep the lights on.
           </h2>
 
           <p className="text-[17px] font-body text-foreground leading-[1.7]">
-            We took a different approach. We looked at the base cost of the Meta API and
-            asked: "What is the absolute minimum margin required to run a sustainable,
-            high-quality service?" The answer was a flat 1.11x markup. No hidden fees. No
-            per-agent licenses. No bullshit.
+            With Connecte, you pay a flat <strong>1.11x markup</strong> on Meta's base rates. I'll be completely honest with you: that 11% isn't for us to get rich. It's the exact amount we need to sustain the platform.
           </p>
 
           <p className="text-[17px] font-body text-foreground leading-[1.7]">
-            You pay what Meta charges, plus a fraction to keep our servers running and
-            our engineers fed. In return, you get a clean, reliable, and incredibly fast
-            interface to manage your WhatsApp Business communication.
+            Right now, we run on free tiers and lean infrastructure. But as more people use Connecte, server costs go up. That 11% goes straight into paying for reliable servers so the platform doesn't go down when you actually need it.
+          </p>
+
+          <p className="text-[17px] font-body text-foreground leading-[1.7]">
+            We are a new team, which means we actually care about our early users. We take every single client seriously, because every business that trusts us helps prove that this model actually works.
           </p>
 
           {/* Author signature — with avatar placeholder, matching mockup */}
@@ -94,7 +84,7 @@ const WhyConnectePage: React.FC = () => {
               href="/about"
               className="text-[14px] font-body text-primary hover:text-primary-dark transition-colors no-underline font-medium inline-flex items-center gap-1"
             >
-              Read the public roadmap
+              See our future roadmap
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

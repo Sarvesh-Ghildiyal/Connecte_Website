@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 /**
@@ -6,6 +7,13 @@ import Logo from './Logo'
  * Layout: Logo left | nav links center | copyright right
  */
 const Footer: React.FC = () => {
+  const links = [
+    { label: 'Twitter', href: '#', external: false },
+    { label: 'LinkedIn', href: '#', external: false },
+    { label: 'Privacy Policy', href: '/privacy', external: false },
+    { label: 'Terms of Service', href: '/terms', external: false },
+  ]
+
   return (
     <footer className="border-t border-border bg-white" role="contentinfo">
       <div className="max-w-page mx-auto px-6 md:px-12 lg:px-16 py-6">
@@ -16,25 +24,32 @@ const Footer: React.FC = () => {
           {/* Center: copyright + links */}
           <div className="flex flex-wrap items-center gap-6">
             <span className="text-[14px] font-body text-muted">
-              © 2024 Connecte Technologies. Built in India.
+              © 2026 Connecte (Connect-Enterprise). Built in India.
             </span>
           </div>
 
           {/* Right: footer nav links */}
           <nav className="flex flex-wrap items-center gap-5" aria-label="Footer navigation">
-            {[
-              { label: 'Twitter', href: 'https://twitter.com/connecte' },
-              { label: 'LinkedIn', href: 'https://linkedin.com/company/connecte' },
-              { label: 'Privacy Policy', href: '/privacy' },
-              { label: 'Terms of Service', href: '/terms' },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline"
-              >
-                {link.label}
-              </a>
+            {links.map((link) => (
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline"
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
         </div>

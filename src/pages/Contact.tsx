@@ -4,11 +4,37 @@ import Button from '../components/Button'
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+    setIsSubmitting(true)
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        })
+      })
+      const result = await response.json()
+      if (result.success) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        // Intentionally not resetting 'submitted' back to false so the button stays green
+      }
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -29,7 +55,7 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {/* Email Card */}
             <a
-              href="mailto:founders@connecte.in"
+              href="mailto:ghildiyalsarvesh@gmail.com"
               className="flex flex-col items-center justify-center p-6 bg-surface rounded text-center no-underline hover:bg-surface-dark transition-colors group"
             >
               <svg className="mb-3" width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -38,13 +64,13 @@ const ContactPage: React.FC = () => {
               </svg>
               <p className="text-[13px] text-muted font-body mb-1">Email Us</p>
               <p className="text-[15px] font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                founders@connecte.in
+                ghildiyalsarvesh@gmail.com
               </p>
             </a>
 
             {/* WhatsApp Card */}
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/9170173489790"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center p-6 bg-surface rounded text-center no-underline hover:bg-surface-dark transition-colors group"
@@ -55,10 +81,14 @@ const ContactPage: React.FC = () => {
               </svg>
               <p className="text-[13px] text-muted font-body mb-1">Direct Message</p>
               <p className="text-[15px] font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                +91 98765 43210
+                +91 70173489790
               </p>
             </a>
           </div>
+
+          <p className="text-[13px] text-muted font-body text-center mb-10">
+            *Full transparency: We're setting up our professional domain emails (e.g., hello@connecte.in) right now. Until then, you have direct access to my personal inbox. Shoot me a message!
+          </p>
 
           {/* "OR SEND A MESSAGE" divider — capitalized with lines */}
           <div className="flex items-center gap-4 mb-8">
@@ -80,7 +110,8 @@ const ContactPage: React.FC = () => {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full px-4 py-3 bg-surface border border-transparent rounded text-[15px] font-body text-foreground placeholder:text-muted/40 focus:outline-none focus:border-foreground transition-colors"
+                disabled={submitted}
+                className="w-full px-4 py-3 bg-surface border border-transparent rounded text-[15px] font-body text-foreground placeholder:text-muted/40 focus:outline-none focus:border-foreground transition-colors disabled:opacity-50"
               />
             </div>
 
@@ -95,7 +126,8 @@ const ContactPage: React.FC = () => {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
-                className="w-full px-4 py-3 bg-surface border border-transparent rounded text-[15px] font-body text-foreground placeholder:text-muted/40 focus:outline-none focus:border-foreground transition-colors"
+                disabled={submitted}
+                className="w-full px-4 py-3 bg-surface border border-transparent rounded text-[15px] font-body text-foreground placeholder:text-muted/40 focus:outline-none focus:border-foreground transition-colors disabled:opacity-50"
               />
             </div>
 
@@ -110,12 +142,20 @@ const ContactPage: React.FC = () => {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 required
                 rows={5}
-                className="w-full px-4 py-3 bg-surface border border-transparent rounded text-[15px] font-body text-foreground placeholder:text-muted/40 focus:outline-none focus:border-foreground transition-colors resize-none"
+                disabled={submitted}
+                className="w-full px-4 py-3 bg-surface border border-transparent rounded text-[15px] font-body text-foreground placeholder:text-muted/40 focus:outline-none focus:border-foreground transition-colors resize-none disabled:opacity-50"
               />
             </div>
 
-            <Button type="submit" variant="dark" size="full" arrow>
-              {submitted ? 'Message Sent ✓' : 'Send Message'}
+            <Button 
+              type="submit" 
+              variant={submitted ? "primary" : "dark"} 
+              size="full" 
+              arrow={!submitted}
+              disabled={isSubmitting || submitted}
+              className={submitted ? "pointer-events-none" : ""}
+            >
+              {submitted ? 'Message Sent ✓' : isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         </div>
