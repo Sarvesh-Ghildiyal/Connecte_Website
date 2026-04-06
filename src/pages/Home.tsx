@@ -9,7 +9,7 @@ const HERO_CONTENT: Record<Audience, { heading: string; subtext: string; cta: st
     heading: 'Your Customer Engagement Messaging Platform',
     subtext: 'Make it easy for people to connect with your business by meeting them where they already are: on WhatsApp.',
     cta: 'Get Started Free',
-    ctaHref: '/book-demo',
+    ctaHref: '/contact',
   },
   switching: {
     heading: 'Tired of Monthly Subscriptions to use Meta APIs ?',

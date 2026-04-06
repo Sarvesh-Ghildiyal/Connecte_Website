@@ -48,15 +48,13 @@ const Navigation: React.FC = () => {
 
         {/* Right side: Login + Book Demo */}
         <div className="hidden lg:flex items-center gap-5">
-          {location.pathname === '/' && (
-            <a href="/login" className="text-[14px] font-body text-foreground hover:text-muted no-underline transition-colors">
-              Login
-            </a>
-          )}
+          <a href="https://app.connecte.in/login" className="text-[14px] font-body text-foreground hover:text-muted no-underline transition-colors">
+            Login
+          </a>
           <Button
             variant={location.pathname === '/privacy' ? 'primary' : 'dark'}
             size="sm"
-            href="/book-demo"
+            href="/contact"
             arrow
           >
             {location.pathname === '/privacy' ? 'BOOK DEMO' : 'Book Demo'}
@@ -98,8 +96,8 @@ const Navigation: React.FC = () => {
             )
           })}
           <div className="flex flex-col gap-4 pt-6 border-t border-border">
-            <a href="/login" className="text-[17px] font-body text-foreground no-underline text-center py-2">Login</a>
-            <Button variant="dark" size="full" href="/book-demo" arrow>
+            <a href="https://app.connecte.in/login" className="text-[17px] font-body text-foreground no-underline text-center py-2">Login</a>
+            <Button variant="dark" size="full" href="/contact" arrow>
               Book Demo
             </Button>
           </div>
