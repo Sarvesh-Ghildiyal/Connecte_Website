@@ -21,10 +21,9 @@ const Footer: React.FC = () => {
           {/* Logo */}
           <Logo />
 
-          {/* Center: copyright + links */}
           <div className="flex flex-wrap items-center gap-6">
-            <span className="text-[14px] font-body text-muted">
-              © 2026 Connecte (Connect-Enterprise). Built in India.
+            <span className="text-[14px] font-body text-muted flex items-center gap-1">
+              © 2026 Connecte. All rights reserved.
             </span>
           </div>
 
