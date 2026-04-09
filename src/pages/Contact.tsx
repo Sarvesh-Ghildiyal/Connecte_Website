@@ -55,7 +55,7 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {/* Email Card */}
             <a
-              href="mailto:ghildiyalsarvesh@gmail.com"
+              href="mailto:founders@connecte.in"
               className="flex flex-col items-center justify-center p-6 bg-surface rounded text-center no-underline hover:bg-surface-dark transition-colors group"
             >
               <svg className="mb-3" width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -64,7 +64,7 @@ const ContactPage: React.FC = () => {
               </svg>
               <p className="text-[13px] text-muted font-body mb-1">Email Us</p>
               <p className="text-[15px] font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                ghildiyalsarvesh@gmail.com
+                founders@connecte.in
               </p>
             </a>
 
@@ -85,10 +85,6 @@ const ContactPage: React.FC = () => {
               </p>
             </a>
           </div>
-
-          <p className="text-[13px] text-muted font-body text-center mb-10">
-            *Full transparency: We're setting up our professional domain emails (e.g., hello@connecte.in) right now. Until then, you have direct access to my personal inbox. Shoot me a message!
-          </p>
 
           {/* "OR SEND A MESSAGE" divider — capitalized with lines */}
           <div className="flex items-center gap-4 mb-8">
