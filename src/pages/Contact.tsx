@@ -70,7 +70,7 @@ const ContactPage: React.FC = () => {
 
             {/* WhatsApp Card */}
             <a
-              href="https://wa.me/9170173489790"
+              href="https://wa.me/916396597003"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center p-6 bg-surface rounded text-center no-underline hover:bg-surface-dark transition-colors group"
@@ -81,7 +81,7 @@ const ContactPage: React.FC = () => {
               </svg>
               <p className="text-[13px] text-muted font-body mb-1">Direct Message</p>
               <p className="text-[15px] font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                +91 70173489790
+                +91 6396 597 003
               </p>
             </a>
           </div>
