@@ -19,6 +19,7 @@ const SECTIONS = [
       { bold: 'Direct Meta Relationship:', text: ' You must maintain a valid WhatsApp Business Account (WABA) in good standing with Meta.' },
       { bold: 'Platform Dependency:', text: ' Connecte is not responsible for service interruptions, delivery failures, or downtime caused by Meta\'s API infrastructure.' },
       { bold: 'Policy Compliance:', text: ' You must adhere to WhatsApp\'s Business and Commerce Policies at all times. Violations may result in account suspension by Meta or Connecte.' },
+      { bold: 'Meta Platform Agreement:', text: ' By using Connecte, you agree to comply with Meta\'s Platform Terms and Developer Policies, and you authorize Connecte to act as your Tech Provider in accessing WhatsApp Cloud API on your behalf.' },
     ],
   },
   {
@@ -63,6 +64,7 @@ const SECTIONS = [
       { bold: 'Spamming:', text: ' Sending unsolicited messages to users who have not opted in.' },
       { bold: 'Illegal Content:', text: ' Transmitting content that is fraudulent, defamatory, or violates intellectual property rights.' },
       { bold: 'Misrepresentation:', text: ' Impersonating other businesses or providing false information during Meta verification.' },
+      { bold: 'Sensitive Data Misuse:', text: ' Facilitating direct patient-provider healthcare conversations, collecting patient data, or requesting payment card or financial account numbers over WhatsApp messages.' },
     ],
   },
   {
@@ -84,7 +86,7 @@ const SECTIONS = [
     number: '09',
     title: 'TERMINATION',
     content: [
-      'You may terminate your account at any time via the dashboard or by emailing ghildiyalsarvesh@gmail.com. Upon termination, we will delete your account data and API access tokens within 30 days.',
+      'You may terminate your account at any time via the dashboard or by emailing ghildiyalsarvesh@gmail.com. Upon termination, we will delete your account data and API access tokens as soon as reasonably practicable, and no later than 30 days.',
       'We reserve the right to suspend accounts found in violation of these terms or Meta\'s policies.',
     ],
   },

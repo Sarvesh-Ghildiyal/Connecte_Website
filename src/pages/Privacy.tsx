@@ -61,6 +61,21 @@ const SECTIONS = [
         text: 'Used solely for onboarding, support communications, and product updates.',
         highlighted: false,
       },
+      {
+        title: 'SUPABASE',
+        text: 'Used for database hosting and secure authentication. Platform data and credentials are stored encrypted at rest.',
+        highlighted: false,
+      },
+      {
+        title: 'CLOUDFLARE',
+        text: 'Used for DNS routing, Content Delivery Network (CDN) protection, and hosting of the frontend application.',
+        highlighted: false,
+      },
+      {
+        title: 'FASTAPI CLOUD',
+        text: 'Used for backend API application hosting to securely route messages and process dashboard analytics.',
+        highlighted: false,
+      },
     ],
   },
   {
@@ -74,7 +89,7 @@ const SECTIONS = [
     number: '07',
     title: 'DATA RETENTION',
     content: [
-      'Account data is retained for the duration of your subscription and deleted within 30 days of closure. Message history is retained for 3 months by default (varies by plan).',
+      'Account data is retained for the duration of your subscription and deleted as soon as reasonably practicable, and no later than 30 days of closure. Message history is retained for 3 months by default (varies by plan).',
       'You may request deletion of your data at any time by contacting us: ghildiyalsarvesh@gmail.com.',
     ],
   },
