@@ -8,10 +8,10 @@ import Logo from './Logo'
  */
 const Footer: React.FC = () => {
   const links = [
-    { label: 'Twitter', href: '#', external: false },
-    { label: 'LinkedIn', href: '#', external: false },
-    { label: 'Privacy Policy', href: '/privacy', external: false },
-    { label: 'Terms of Service', href: '/terms', external: false },
+    { label: 'Twitter', href: '#', external: true },
+    { label: 'LinkedIn', href: '#', external: true },
+    { label: 'Privacy Policy', href: '/privacy', external: true },
+    { label: 'Terms of Service', href: '/terms', external: true },
   ]
 
   return (
@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline"
                 >
                   {link.label}

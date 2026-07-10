@@ -67,9 +67,401 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind compiled stylesheet via Vite -->
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="min-h-screen flex flex-col bg-white font-body text-foreground antialiased">
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white" role="navigation" aria-label="Main navigation">
+      <div class="max-w-page mx-auto flex items-center justify-between px-6 md:px-12 h-[64px]">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 no-underline" aria-label="Connecte Home">
+          <img src="/svg/connecte.svg" alt="Connecte" width="24" height="24" />
+          <span class="font-heading font-bold text-lg text-foreground">
+            Connecte
+          </span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+          <a href="/" class="text-[14px] font-body font-medium transition-colors duration-150 no-underline text-foreground hover:text-muted">Home</a>
+          <a href="/pricing" class="text-[14px] font-body font-medium transition-colors duration-150 no-underline text-foreground hover:text-muted">Pricing</a>
+          <a href="/why-connecte" class="text-[14px] font-body font-medium transition-colors duration-150 no-underline text-foreground hover:text-muted">Why Connecte</a>
+          <a href="/about" class="text-[14px] font-body font-medium transition-colors duration-150 no-underline text-foreground hover:text-muted">About</a>
+          <a href="/contact" class="text-[14px] font-body font-medium transition-colors duration-150 no-underline text-foreground hover:text-muted">Contact</a>
+        </div>
+
+        <!-- Right side: Login + Book Demo -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="https://app.connecte.in/login" class="text-[14px] font-body text-foreground hover:text-muted no-underline transition-colors">
+            Login
+          </a>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 font-heading font-semibold transition-all duration-200 cursor-pointer bg-primary text-white hover:bg-primary-dark px-4 py-2 text-sm rounded uppercase tracking-wider">
+            BOOK DEMO
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="w-5 h-0.5 bg-foreground transition-transform duration-200" id="hamburger-line-1"></span>
+          <span class="w-5 h-0.5 bg-foreground transition-opacity duration-200" id="hamburger-line-2"></span>
+          <span class="w-5 h-0.5 bg-foreground transition-transform duration-200" id="hamburger-line-3"></span>
+        </button>
+      </div>
+
+      <!-- Full-width separator line -->
+      <div class="w-full h-px bg-border"></div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border px-6 py-6 space-y-5 shadow-lg">
+        <a href="/" class="block text-[17px] font-body no-underline text-foreground">Home</a>
+        <a href="/pricing" class="block text-[17px] font-body no-underline text-foreground">Pricing</a>
+        <a href="/why-connecte" class="block text-[17px] font-body no-underline text-foreground">Why Connecte</a>
+        <a href="/about" class="block text-[17px] font-body no-underline text-foreground">About</a>
+        <a href="/contact" class="block text-[17px] font-body no-underline text-foreground">Contact</a>
+        <div class="flex flex-col gap-4 pt-6 border-t border-border">
+          <a href="https://app.connecte.in/login" class="text-[17px] font-body text-foreground no-underline text-center py-2">Login</a>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 font-heading font-semibold transition-all duration-200 cursor-pointer bg-accent text-white hover:bg-foreground/90 px-6 py-3 text-[15px] rounded w-full">
+            Book Demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+      <!-- Header -->
+      <section class="pt-16 md:pt-24 pb-10 px-6 md:px-12 lg:px-[120px]">
+        <div class="max-w-[500px]">
+          <!-- Green accent bar -->
+          <div class="w-8 h-[3px] bg-primary mb-8"></div>
+          <h1 class="font-heading text-[48px] sm:text-[60px] md:text-[72px] font-bold leading-[0.95] tracking-[-0.04em] text-foreground uppercase">
+            Privacy<br />Policy
+          </h1>
+          <p class="text-[11px] font-body uppercase tracking-[0.15em] text-muted mt-6">
+            Effective date: March 2026
+          </p>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <section class="pb-24 px-6 md:px-12 lg:px-[120px]">
+        <div class="max-w-[500px] space-y-16">
+          <!-- Section 01 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              01 . INTRODUCTION
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                Connecte ("we", "our", "us") is a WhatsApp Business messaging platform that enables businesses to manage WhatsApp communications at scale. Our platform is built on Meta's WhatsApp Cloud API and Business Management API.
+              </p>
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                This Privacy Policy explains what data we collect, how we use it, how we protect it, and your rights as a user of Connecte. By registering and using Connecte, you agree to the practices described in this policy.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 02 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              02 . DATA WE COLLECT
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                When you use Connecte, we collect the following categories of information to ensure reliable service delivery and account security:
+              </p>
+            </div>
+            <div class="mt-6 space-y-4">
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Account data:</strong> Business name and email address used during registration, along with hashed authentication credentials.
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>WhatsApp integration data:</strong> WABA ID, system access tokens (stored encrypted), phone number IDs, and profile information.
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Template data:</strong> Message templates (content, variables, status) and Meta performance metrics (sent, delivered, read counts).
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Messaging data:</strong> Message content, metadata, timestamps, and customer contact phone numbers. Media files are stored by Meta for 30 days.
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Analytics data:</strong> Platform usage stats, API health status, and analytics used for dashboard reporting.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 03 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              03 . HOW WE USE YOUR DATA
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                We use your data primarily to provide the core messaging services via Meta's APIs and to route communications effectively through your Connecte dashboard.
+              </p>
+            </div>
+            <div class="mt-6 space-y-4">
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Productivity:</strong> Displaying incoming and outgoing messages and analytics in your dashboard.
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Support:</strong> Sending onboarding, product update, and support communications to your registered email.
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-primary font-bold text-sm mt-0.5 flex-shrink-0">/</span>
+                <p class="text-[14px] font-body text-foreground leading-[1.6]">
+                  <strong>Optimization:</strong> Improving platform performance, reliability, and feature sets based on usage patterns.
+                </p>
+              </div>
+            </div>
+            <div class="mt-8 p-6 bg-surface border-l-[3px] border-primary">
+              <p class="text-[14px] font-body text-foreground italic leading-[1.6]">
+                We do not sell your data, use your message content for advertising, or access your content except where strictly required for support with your consent.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 04 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              04 . DATA STORAGE & PROTECTION
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                All data is stored on encrypted servers with access tokens encrypted at rest. Each business account is fully isolated—your data is never accessible to other customers.
+              </p>
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                Note: Media files are stored by Meta on their infrastructure (ID-only reference). After 30 days, Meta may delete these files unless your plan includes extended storage.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 05 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              05 . THIRD PARTIES
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                We share your data strictly with the following trusted third parties for core functionality:
+              </p>
+            </div>
+            <div class="mt-8 space-y-0">
+              <div class="p-6 bg-surface border-l-[3px] border-primary">
+                <h3 class="text-[11px] font-body uppercase tracking-[0.1em] font-bold text-foreground mb-2">
+                  META / WHATSAPP
+                </h3>
+                <p class="text-[14px] font-body text-muted leading-relaxed">
+                  Core requirement for WABA integration and messaging via the WhatsApp Cloud API.
+                </p>
+              </div>
+              <div class="p-6 bg-surface">
+                <h3 class="text-[11px] font-body uppercase tracking-[0.1em] font-bold text-foreground mb-2">
+                  HUBSPOT
+                </h3>
+                <p class="text-[14px] font-body text-muted leading-relaxed">
+                  Used solely for onboarding, support communications, and product updates.
+                </p>
+              </div>
+              <div class="p-6 bg-surface">
+                <h3 class="text-[11px] font-body uppercase tracking-[0.1em] font-bold text-foreground mb-2">
+                  SUPABASE
+                </h3>
+                <p class="text-[14px] font-body text-muted leading-relaxed">
+                  Used for database hosting and secure authentication. Platform data and credentials are stored encrypted at rest.
+                </p>
+              </div>
+              <div class="p-6 bg-surface">
+                <h3 class="text-[11px] font-body uppercase tracking-[0.1em] font-bold text-foreground mb-2">
+                  CLOUDFLARE
+                </h3>
+                <p class="text-[14px] font-body text-muted leading-relaxed">
+                  Used for DNS routing, Content Delivery Network (CDN) protection, and hosting of the frontend application.
+                </p>
+              </div>
+              <div class="p-6 bg-surface">
+                <h3 class="text-[11px] font-body uppercase tracking-[0.1em] font-bold text-foreground mb-2">
+                  FASTAPI CLOUD
+                </h3>
+                <p class="text-[14px] font-body text-muted leading-relaxed">
+                  Used for backend API application hosting to securely route messages and process dashboard analytics.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 06 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              06 . YOUR CUSTOMERS' DATA
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                You are the data controller for your customers' info. Connecte acts as a data processor. You must obtain valid opt-in consent and comply with WhatsApp's Business Policy and local laws like India's DPDP Act 2023.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 07 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              07 . DATA RETENTION
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                Account data is retained for the duration of your subscription and deleted as soon as reasonably practicable, and no later than 30 days of closure. Message history is retained for 3 months by default (varies by plan).
+              </p>
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                You may request deletion of your data at any time by contacting us: <a href="mailto:ghildiyalsarvesh@gmail.com" class="text-foreground underline hover:text-primary">ghildiyalsarvesh@gmail.com</a>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 08 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              08 . YOUR RIGHTS
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                As a user, you have the right to export your account data, request full deletion, update your info, or withdraw WhatsApp API access at any time via your Meta Business Portfolio.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 09 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              09 . POLICY UPDATES
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                This policy will be updated as new features are added. You will be notified of any material changes via email at least 7 days before they take effect.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 10 -->
+          <div>
+            <h2 class="text-[11px] font-body uppercase tracking-[0.15em] text-primary font-bold mb-6">
+              10 . CONTACT
+            </h2>
+            <div class="space-y-5">
+              <p class="text-[15px] font-body text-foreground leading-[1.7]">
+                For any privacy-related questions or requests, please reach out to us directly through the following channels:
+              </p>
+            </div>
+            <div class="mt-8">
+              <a
+                href="mailto:ghildiyalsarvesh@gmail.com"
+                class="text-[18px] font-heading font-bold text-foreground underline underline-offset-4 decoration-1 hover:text-primary transition-colors"
+              >
+                ghildiyalsarvesh@gmail.com
+              </a>
+              <p class="text-[11px] font-body uppercase tracking-[0.1em] text-muted mt-2">
+                INDIA | +91 7017348970
+              </p>
+            </div>
+          </div>
+
+          <!-- End of document marker -->
+          <div class="border-t border-border pt-6 flex justify-between text-[10px] text-muted font-body uppercase tracking-[0.15em]">
+            <span>End of document</span>
+            <span>2026 / CNCT / v1</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-white" role="contentinfo">
+      <div class="max-w-page mx-auto px-6 md:px-12 lg:px-16 py-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-2 no-underline" aria-label="Connecte Home">
+            <img src="/svg/connecte.svg" alt="Connecte" width="24" height="24" />
+            <span class="font-heading font-bold text-lg text-foreground">
+              Connecte
+            </span>
+          </a>
+
+          <div class="flex flex-wrap items-center gap-6">
+            <span class="text-[14px] font-body text-muted flex items-center gap-1">
+              © 2026 Connecte. All rights reserved.
+            </span>
+          </div>
+
+          <!-- Right: footer nav links -->
+          <nav class="flex flex-wrap items-center gap-5" aria-label="Footer navigation">
+            <a href="#" class="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline">Twitter</a>
+            <a href="#" class="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline">LinkedIn</a>
+            <a href="/privacy" class="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline">Privacy Policy</a>
+            <a href="/terms" class="text-[14px] font-body text-muted hover:text-foreground transition-colors no-underline">Terms of Service</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Hamburger Toggle JS Script -->
+    <script>
+      (function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const line1 = document.getElementById('hamburger-line-1');
+        const line2 = document.getElementById('hamburger-line-2');
+        const line3 = document.getElementById('hamburger-line-3');
+
+        if (menuBtn && menu) {
+          menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('hidden');
+            if (!isExpanded) {
+              line1.classList.add('rotate-45', 'translate-y-2');
+              line2.classList.add('opacity-0');
+              line3.classList.add('-rotate-45', '-translate-y-2');
+            } else {
+              line1.classList.remove('rotate-45', 'translate-y-2');
+              line2.classList.remove('opacity-0');
+              line3.classList.remove('-rotate-45', '-translate-y-2');
+            }
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

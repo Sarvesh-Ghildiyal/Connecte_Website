@@ -3,6 +3,8 @@ import type { Config } from 'tailwindcss'
 export default {
   content: [
     "./index.html",
+    "./privacy.html",
+    "./terms.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {

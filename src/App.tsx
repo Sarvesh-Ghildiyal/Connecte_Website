@@ -7,8 +7,6 @@ import PricingPage from './pages/Pricing'
 import WhyConnectePage from './pages/WhyConnecte'
 import AboutPage from './pages/About'
 import ContactPage from './pages/Contact'
-import PrivacyPage from './pages/Privacy'
-import TermsPage from './pages/Terms'
 
 const App: React.FC = () => {
   return (
@@ -22,8 +20,6 @@ const App: React.FC = () => {
             <Route path="/why-connecte" element={<WhyConnectePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
           </Routes>
         </div>
         <Footer />
